@@ -3,6 +3,7 @@ using Medirect.Application.Commands.CreateCurrencyConversionTradeComamnd;
 using Medirect.Application.Commands.GetExchangeRateCommand;
 using Medirect.Application.Model;
 using Medirect.Test.API.Extension;
+using Medirect.Test.API.Helper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,7 @@ namespace Medirect.Test.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResultWrapper<CreateCurrencyConversionResponse>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ResultWrapper<CreateCurrencyConversionResponse>))]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized, Type = typeof(ResultWrapper<CreateCurrencyConversionResponse>))]
+        [LimitRequests(MaxRequests = 1, TimeWindow = 95)]
         public async Task<IActionResult> Create([FromBody] CreateCurrencyConversionRequest createCurrencyConversionRequest)
         {
             var result = await _mediator.Send(createCurrencyConversionRequest,

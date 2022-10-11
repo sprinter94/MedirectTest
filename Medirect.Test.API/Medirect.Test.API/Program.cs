@@ -4,6 +4,7 @@ using Medirect.Infrastructure;
 using Medirect.Infrastructure.Persistance;
 using Medirect.Test.API;
 using Medirect.Test.API.Helper;
+using Medirect.Test.API.Middleware;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -45,6 +46,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<RateLimitingMiddleware>();
 
 app.MapControllers();
 

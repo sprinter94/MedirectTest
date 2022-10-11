@@ -17,6 +17,6 @@ namespace Medirect.Application.Contracts
 
         Task<bool> SaveChangesAsync();
 
-        Task<T?> FindByConditionAsync(Expression<Func<T, bool>> predicate);
+        Task<List<T>> FindByConditionAsync(Expression<Func<T, bool>> predicate);
     }
 }
