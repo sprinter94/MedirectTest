@@ -1,4 +1,5 @@
 ﻿using Medirect.Application.Contracts;
+using Medirect.Infrastructure.Persistance;
 using Medirect.Infrastructure.Services;
 using Medirect.Infrastructure.ThirdParty;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +18,10 @@ namespace Medirect.Infrastructure
             this IServiceCollection services, IConfiguration configuration)
         {
             services.AddHttpClient<IExchangeRateService, FixerExchangeRateService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IExchangeRateHistoryRepository, ExchangeRateHistoryRepository>();
+            services.AddScoped<IExchangeRateRepository, ExchangeRateRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services
                 .AddScoped<ICacheService, RedisCacheService>()
             .AddStackExchangeRedisCache(options =>

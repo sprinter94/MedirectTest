@@ -2,6 +2,7 @@
 using Mapster;
 using MediatR;
 using Medirect.Application.Contracts;
+using Medirect.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Medirect.Application
 
             return services
                 .AddMediatR(assembly)
+                .AddScoped<ICurrentUserService, CurrentUserService>()
                 .AddValidatorsFromAssembly(assembly);
         }
     }

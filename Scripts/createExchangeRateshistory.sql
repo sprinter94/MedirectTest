@@ -1,5 +1,5 @@
 CREATE TABLE `exchangeRatesHistory` (
-	`PK_Id` INT NOT NULL,
+	`PK_Id` INT NOT NULL Auto_INCREMENT,
 	`FK_UserID` INT NOT NULL,
 	`BaseCurrency` CHAR(3) NOT NULL DEFAULT '',
 	`BaseAmount` DECIMAL(10,0) NOT NULL DEFAULT 0,

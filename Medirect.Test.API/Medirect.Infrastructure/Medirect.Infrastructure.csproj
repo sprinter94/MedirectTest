@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.10" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.9" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
@@ -16,10 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Medirect.Application\Medirect.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Persistance\" />
+    <ProjectReference Include="..\Medirect.Domain\Medirect.Domain.csproj" />
   </ItemGroup>
 
 </Project>
