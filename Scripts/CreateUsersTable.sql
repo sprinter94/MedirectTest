@@ -1,0 +1,8 @@
+CREATE TABLE `user` (
+	`PK_UserId` INT NOT NULL,
+	`Firstname` VARCHAR(50) NOT NULL DEFAULT '',
+	`LastName` VARCHAR(50) NOT NULL DEFAULT '',
+	PRIMARY KEY (`PK_UserId`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+;

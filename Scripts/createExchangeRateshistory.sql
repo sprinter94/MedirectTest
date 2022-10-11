@@ -1,0 +1,14 @@
+CREATE TABLE `exchangeRatesHistory` (
+	`PK_Id` INT NOT NULL,
+	`FK_UserID` INT NOT NULL,
+	`BaseCurrency` CHAR(3) NOT NULL DEFAULT '',
+	`BaseAmount` DECIMAL(10,0) NOT NULL DEFAULT 0,
+	`ToCurrency` CHAR(3) NOT NULL DEFAULT '0',
+	`ToAmount` DECIMAL(10,0) NOT NULL DEFAULT 0,
+	`ExchangeRate` DECIMAL(10,0) NOT NULL DEFAULT 0,
+	`DateInserted` DATETIME NOT NULL DEFAULT 0,
+	PRIMARY KEY (`PK_Id`),
+	CONSTRAINT `FK__user` FOREIGN KEY (`FK_UserID`) REFERENCES `user` (`PK_UserId`)
+)
+COLLATE='utf8mb4_0900_ai_ci'
+;
