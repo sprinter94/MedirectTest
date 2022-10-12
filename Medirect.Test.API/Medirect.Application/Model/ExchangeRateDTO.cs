@@ -149,7 +149,7 @@ namespace Medirect.Application.Model
         public double ETB { get; set; }
 
         [JsonPropertyName("EUR")]
-        public int EUR { get; set; }
+        public double EUR { get; set; }
 
         [JsonPropertyName("FJD")]
         public double FJD { get; set; }
