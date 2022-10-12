@@ -11,8 +11,8 @@ namespace Medirect.Application.Commands.CreateCurrencyConversionTradeComamnd
     {
         public CreateCurrencyConversionValidator()
         {
-            RuleFor(x => x.BaseCurrency).MaximumLength(3).NotEmpty().NotNull();
-            RuleFor(x => x.ToCurrency).NotEmpty().NotNull().MaximumLength(3);
+            RuleFor(x => x.BaseCurrency).MaximumLength(3).MinimumLength(3).NotEmpty().NotNull();
+            RuleFor(x => x.ToCurrency).NotEmpty().NotNull().MaximumLength(3).MinimumLength(3);
             RuleFor(x => x.BaseAmount).NotEmpty();
         }
     }

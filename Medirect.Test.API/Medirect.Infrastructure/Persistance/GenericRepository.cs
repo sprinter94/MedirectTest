@@ -40,9 +40,9 @@ namespace Medirect.Infrastructure.Persistance
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public async Task<T?> FindByConditionAsync(Expression<Func<T, bool>> predicate)
+        public async Task<List<T>> FindByConditionAsync(Expression<Func<T, bool>> predicate)
         {
-            return await _context.Set<T>().FirstOrDefaultAsync(predicate);
+            return await _context.Set<T>().Where(predicate).ToListAsync();
         }
     }
 }

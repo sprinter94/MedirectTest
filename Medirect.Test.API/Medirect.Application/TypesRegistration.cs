@@ -23,7 +23,9 @@ namespace Medirect.Application
             return services
                 .AddMediatR(assembly)
                 .AddScoped<ICurrentUserService, CurrentUserService>()
-                .AddValidatorsFromAssembly(assembly);
+                .AddValidatorsFromAssembly(assembly)
+                .AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>))
+                .AddTransient(typeof(IPipelineBehavior<,>), typeof(HandleErrorBehavior<,>));
         }
     }
 }

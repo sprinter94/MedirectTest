@@ -1,9 +1,11 @@
+using FluentValidation.AspNetCore;
 using Medirect.Application;
 using Medirect.Application.Settings;
 using Medirect.Infrastructure;
 using Medirect.Infrastructure.Persistance;
 using Medirect.Test.API;
 using Medirect.Test.API.Helper;
+using Medirect.Test.API.Middleware;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -27,12 +29,11 @@ builder.Services.Configure<JWT>(Configuration.GetSection("Jwt"));
 
 var Log = new LoggerConfiguration()
 .ReadFrom.Configuration(Configuration)
-.WriteTo.File(@"G:\Documents\brandon\Test2\Medirect.Test.API")
 .CreateLogger();
 
 var loggerFactory = new LoggerFactory().AddSerilog(Log);
 builder.Services.AddSingleton(loggerFactory);
-
+builder.Host.UseSerilog(Log);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -45,7 +46,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseMiddleware<RateLimitingMiddleware>();
+app.UseSerilogRequestLogging();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program
+{ }

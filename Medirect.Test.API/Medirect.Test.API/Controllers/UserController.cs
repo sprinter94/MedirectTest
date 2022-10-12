@@ -14,10 +14,12 @@ namespace Medirect.Test.API.Controllers
     public class UserController : ControllerBase
     {
         private readonly JWT _jWT;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(IOptions<JWT> options)
+        public UserController(IOptions<JWT> options, ILogger<UserController> logger)
         {
             _jWT = options.Value;
+            _logger = logger;
         }
 
         /// <summary>
@@ -27,6 +29,7 @@ namespace Medirect.Test.API.Controllers
         [HttpGet]
         public IActionResult GetDummyUser()
         {
+            _logger.LogInformation("Creating dummy user");
             var issuer = _jWT.Issuer;
             var audience = _jWT.Audience;
             var key = Encoding.ASCII.GetBytes
