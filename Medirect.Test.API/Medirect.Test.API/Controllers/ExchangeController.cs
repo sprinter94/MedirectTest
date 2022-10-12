@@ -38,7 +38,7 @@ namespace Medirect.Test.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ResultWrapper<CreateCurrencyConversionResponse>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ResultWrapper<CreateCurrencyConversionResponse>))]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized, Type = typeof(ResultWrapper<CreateCurrencyConversionResponse>))]
-        [LimitRequests(MaxRequests = 1, TimeWindow = 95)]
+        [LimitRequests(MaxRequests = 10, TimeWindow = 60)]
         public async Task<IActionResult> Create([FromBody] CreateCurrencyConversionRequest createCurrencyConversionRequest)
         {
             var result = await _mediator.Send(createCurrencyConversionRequest,

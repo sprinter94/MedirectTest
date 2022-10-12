@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medirect.Test.API", "Medirect.Test.API\Medirect.Test.API.csproj", "{14BDB461-B080-48DA-AE4A-ED2B70430644}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medirect.Test.API", "Medirect.Test.API\Medirect.Test.API.csproj", "{14BDB461-B080-48DA-AE4A-ED2B70430644}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medirect.Domain", "Medirect.Domain\Medirect.Domain.csproj", "{9B1CE0BF-89E6-41EF-B011-A447DEE97786}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medirect.Domain", "Medirect.Domain\Medirect.Domain.csproj", "{9B1CE0BF-89E6-41EF-B011-A447DEE97786}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medirect.Infrastructure", "Medirect.Infrastructure\Medirect.Infrastructure.csproj", "{B5486FDC-A796-4EEA-AE59-E38D2787B74B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medirect.Infrastructure", "Medirect.Infrastructure\Medirect.Infrastructure.csproj", "{B5486FDC-A796-4EEA-AE59-E38D2787B74B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medirect.Application", "Medirect.Application\Medirect.Application.csproj", "{D8CF6920-0803-4798-97A1-C450BA307EAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medirect.Application", "Medirect.Application\Medirect.Application.csproj", "{D8CF6920-0803-4798-97A1-C450BA307EAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B1E67FD0-D14A-4A73-BCF2-04D533000239}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTest", "Application.UnitTest\Application.UnitTest.csproj", "{096D60A8-2AF4-4C0F-9D36-DF32FE18B29B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.UnitTests", "Infrastructure.UnitTests\Infrastructure.UnitTests.csproj", "{7A75FF04-092E-4623-9E9D-034DF472384D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +39,21 @@ Global
 		{D8CF6920-0803-4798-97A1-C450BA307EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8CF6920-0803-4798-97A1-C450BA307EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8CF6920-0803-4798-97A1-C450BA307EAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{096D60A8-2AF4-4C0F-9D36-DF32FE18B29B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096D60A8-2AF4-4C0F-9D36-DF32FE18B29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096D60A8-2AF4-4C0F-9D36-DF32FE18B29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096D60A8-2AF4-4C0F-9D36-DF32FE18B29B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A75FF04-092E-4623-9E9D-034DF472384D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A75FF04-092E-4623-9E9D-034DF472384D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A75FF04-092E-4623-9E9D-034DF472384D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A75FF04-092E-4623-9E9D-034DF472384D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{096D60A8-2AF4-4C0F-9D36-DF32FE18B29B} = {B1E67FD0-D14A-4A73-BCF2-04D533000239}
+		{7A75FF04-092E-4623-9E9D-034DF472384D} = {B1E67FD0-D14A-4A73-BCF2-04D533000239}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B7B76C2-D39B-4F6E-9D86-C8A48BB01E58}
