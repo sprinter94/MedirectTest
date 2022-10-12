@@ -11,6 +11,9 @@ using System.Net;
 
 namespace Medirect.Test.API.Controllers
 {
+    /// <summary>
+    /// Exchange Controller to post exchange rates or get latest exchange rates
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]

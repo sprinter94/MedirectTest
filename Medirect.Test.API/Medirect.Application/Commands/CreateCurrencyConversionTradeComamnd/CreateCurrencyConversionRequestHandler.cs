@@ -31,15 +31,19 @@ namespace Medirect.Application.Commands.CreateCurrencyConversionTradeComamnd
 
         public async Task<ResultWrapper<CreateCurrencyConversionResponse>> Handle(CreateCurrencyConversionRequest request, CancellationToken cancellationToken)
         {
+            //get latest rates either from cache or 3rd party
             var rates = await _exchangeRateRepository.GetExchangeRates(request.BaseCurrency);
             if (rates == null)
             {
+                _logger.LogError("Could not get latest exchange rates");
                 return ResultWrapper<CreateCurrencyConversionResponse>.Internal("could not retrieve rates.");
             }
 
             var exchangeRate = rates.Rates.GetType().GetProperty(request.ToCurrency.ToUpper()).GetValue(rates.Rates, null);
 
+            //calculate amount in converted currency
             var toAmount = request.BaseAmount * Convert.ToDecimal(exchangeRate);
+            // get username from token
             var username = _currentUserService.GetUsername();
             if (string.IsNullOrEmpty(username))
             {
@@ -54,6 +58,7 @@ namespace Medirect.Application.Commands.CreateCurrencyConversionTradeComamnd
                 return ResultWrapper<CreateCurrencyConversionResponse>.Internal("could not find user.");
             }
 
+            //add trade in db
             _exchangeRateHistoryRepository.Add(new Domain.ExchangeRatesHistory
             {
                 BaseAmount = request.BaseAmount,
