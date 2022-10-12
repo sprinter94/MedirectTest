@@ -7,3 +7,4 @@ https://dev.to/divshekhar/how-to-install-redis-on-windows-10-3e99
 3. Go to appsettings.Development.json and change the connectionstrings to both the MySqlInstance and redis instance to your i.p.
 4. Run API
 5. Call Users Controller to get a dummy JWT bearer token. This is done for the test purpose to have a jwt token since api methods are Authenticated. In real life Users Controller would be in a seperate micro service.
+6. You can call ExchangeController to either get lates rates or post an exchange rate
