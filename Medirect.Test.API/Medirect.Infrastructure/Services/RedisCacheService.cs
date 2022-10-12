@@ -38,6 +38,11 @@ namespace Medirect.Infrastructure.Services
 
         public async Task<T> TryGet<T>(string cacheKey)
         {
+            if (cacheKey is null)
+            {
+                throw new ArgumentNullException(nameof(cacheKey));
+            }
+
             var jsonData = await _cache.GetStringAsync(cacheKey.ToUpper());
             if (jsonData is null)
             {
